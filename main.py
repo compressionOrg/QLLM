@@ -162,7 +162,7 @@ def main():
 
     # load model
     args.net = args.model.split("/")[-1]
-    assert args.net in net_choices
+    # assert args.net in net_choices
     args.model_family = args.net.split("-")[0]
     lm = LMClass(args, logger)
     lm.seqlen = args.seq_len
@@ -171,7 +171,7 @@ def main():
     tick = time.time()
 
     # load calibration dataset
-    cache_dataloader = f"{args.cache_dir}/dataloader_{args.model_family}_{args.calib_dataset}_{args.nsamples}_{args.seq_len}.cache"
+    cache_dataloader = f"datasets_cache/dataloader_{args.model_family}_{args.calib_dataset}_{args.nsamples}_{args.seq_len}.cache"
     if os.path.exists(cache_dataloader):
         dataloader = torch.load(cache_dataloader)
         logger.info(f"load calibration from {cache_dataloader}")

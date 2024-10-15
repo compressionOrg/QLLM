@@ -1,5 +1,5 @@
 SAVE_PATH=save_path
-python main.py --model model_path \
+python main.py --model Enoch/llama-7b-hf \
 --wbits 4 \
 --abits 4 \
 --eval_ppl \
